@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DailyReflection() {
-  const [reflection, setReflection] = useState(() => {
-    if (typeof window === "undefined") return "";
-    return localStorage.getItem("faithplugbryn-reflection") || "";
-  });
+  const [reflection, setReflection] = useState("");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("faithplugbryn-reflection");
+
+    if (saved) {
+      setTimeout(() => setReflection(saved), 0);
+    }
+  }, []);
 
   function saveReflection() {
     localStorage.setItem("faithplugbryn-reflection", reflection);
