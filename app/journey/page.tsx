@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ReflectionHistory from "../components/ReflectionHistory";
 
 const DAY_KEY = "faithplugbryn-days";
 const LAST_DAY_KEY = "faithplugbryn-last-day";
@@ -176,6 +177,7 @@ export default function JourneyPage() {
             </div>
           </div>
         </section>
+        <ReflectionHistory />
         <p
           style={{
             color: "#8c8068",
