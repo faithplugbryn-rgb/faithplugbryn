@@ -1,4 +1,4 @@
-const dailyScriptures = [
+import DailyReflection from "./components/DailyReflection";const dailyScriptures = [
   {
     verse: "What time I am afraid, I will trust in thee.",
     reference: "Psalm 56:3 · KJV",
@@ -166,7 +166,7 @@ const dailyScriptures = [
           </p>
 
          <p style={{ color: "#d8b365" }}>{scripture.reference}</p>
-        </section>
+        </section>        <DailyReflection />
 
         <section
           style={{
