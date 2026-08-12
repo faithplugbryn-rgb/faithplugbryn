@@ -109,7 +109,7 @@ export default function JourneyPage() {
           </p>
         </section>
 
-        <section
+               <section
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -131,7 +131,38 @@ export default function JourneyPage() {
                 fontSize: "34px",
                 fontWeight: 700,
               }}
-            >              {prayersRead}
+            >
+              {days}
+            </div>
+
+            <div
+              style={{
+                color: "#c9c3b7",
+                fontSize: "13px",
+                marginTop: "5px",
+              }}
+            >
+              Days with God
+            </div>
+          </div>
+
+          <div
+            style={{
+              backgroundColor: "#11110f",
+              border: "1px solid rgba(216, 179, 101, 0.25)",
+              borderRadius: "18px",
+              padding: "22px",
+              textAlign: "center",
+            }}
+          >
+            <div
+              style={{
+                color: "#d8b365",
+                fontSize: "34px",
+                fontWeight: 700,
+              }}
+            >
+              {prayersRead}
             </div>
 
             <div
@@ -145,7 +176,6 @@ export default function JourneyPage() {
             </div>
           </div>
         </section>
-
         <p
           style={{
             color: "#8c8068",
