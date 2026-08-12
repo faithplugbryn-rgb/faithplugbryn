@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ReflectionHistory from "../components/ReflectionHistory";
+import PrayerStreak from "../components/PrayerStreak";
 
 const DAY_KEY = "faithplugbryn-days";
 const LAST_DAY_KEY = "faithplugbryn-last-day";
@@ -177,6 +178,7 @@ export default function JourneyPage() {
             </div>
           </div>
         </section>
+        <PrayerStreak />
         <ReflectionHistory />
         <p
           style={{

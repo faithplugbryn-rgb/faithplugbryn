@@ -4,7 +4,8 @@ import { useEffect } from "react";
 
 const PRAYERS_KEY = "faithplugbryn-prayers-read";
 const LAST_PRAYER_DAY_KEY = "faithplugbryn-last-prayer-day";
-
+const PRAYER_STREAK_KEY = "faithplugbryn-prayer-streak";
+const PRAYER_STREAK_LAST_DAY_KEY = "faithplugbryn-prayer-streak-last-day";
 export default function PrayPage() {
   useEffect(() => {
     const today = new Date().toLocaleDateString("en-CA");
@@ -13,7 +14,20 @@ export default function PrayPage() {
     if (lastPrayerDay !== today) {
       const currentCount = Number(localStorage.getItem(PRAYERS_KEY) || "0");
       localStorage.setItem(PRAYERS_KEY, String(currentCount + 1));
-      localStorage.setItem(LAST_PRAYER_DAY_KEY, today);
+      localStorage.setItem(LAST_PRAYER_DAY_KEY, today);      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayString = yesterday.toLocaleDateString("en-CA");
+
+      const previousStreak = Number(
+        localStorage.getItem(PRAYER_STREAK_KEY) || "0"
+      );
+      const streakLastDay = localStorage.getItem(PRAYER_STREAK_LAST_DAY_KEY);
+
+      const newStreak =
+        streakLastDay === yesterdayString ? previousStreak + 1 : 1;
+
+      localStorage.setItem(PRAYER_STREAK_KEY, String(newStreak));
+      localStorage.setItem(PRAYER_STREAK_LAST_DAY_KEY, today);
     }
   }, []);
 
