@@ -1,5 +1,35 @@
-export default function Home() {
-  return (
+const dailyScriptures = [
+  {
+    verse: "What time I am afraid, I will trust in thee.",
+    reference: "Psalm 56:3 · KJV",
+  },
+  {
+    verse: "I can do all things through Christ which strengtheneth me.",
+    reference: "Philippians 4:13 · KJV",
+  },
+  {
+    verse: "The Lord is my shepherd; I shall not want.",
+    reference: "Psalm 23:1 · KJV",
+  },
+  {
+    verse: "Be still, and know that I am God.",
+    reference: "Psalm 46:10 · KJV",
+  },
+  {
+    verse: "For we walk by faith, not by sight.",
+    reference: "2 Corinthians 5:7 · KJV",
+  },
+  {
+    verse: "Pray without ceasing.",
+    reference: "1 Thessalonians 5:17 · KJV",
+  },
+  {
+    verse: "Rejoicing in hope; patient in tribulation; continuing instant in prayer.",
+    reference: "Romans 12:12 · KJV",
+  },
+];export default function Home() {
+   const dayNumber = Math.floor(Date.now() / 86400000);
+  const scripture = dailyScriptures[dayNumber % dailyScriptures.length]; return (
     <main
       style={{
         minHeight: "100vh",
@@ -132,10 +162,10 @@ export default function Home() {
               lineHeight: "1.6",
             }}
           >
-            &ldquo;What time I am afraid, I will trust in thee.&rdquo;
+                        &ldquo;{scripture.verse}&rdquo;
           </p>
 
-          <p style={{ color: "#d8b365" }}>Psalm 56:3 · KJV</p>
+         <p style={{ color: "#d8b365" }}>{scripture.reference}</p>
         </section>
 
         <section
