@@ -1,3 +1,54 @@
+const dailyPrayers = [
+  {
+    title: "God, guide me today.",
+    paragraphs: [
+      "Heavenly Father, thank You for giving me another day. Calm the things I cannot control, give me wisdom for the decisions ahead, and help me recognize Your presence in the ordinary moments.",
+      "Strengthen my faith when I feel uncertain. Help me walk with patience, courage and love today. Amen.",
+    ],
+  },
+  {
+    title: "God, give me peace.",
+    paragraphs: [
+      "Heavenly Father, quiet my heart when worry feels louder than faith. Remind me that I do not have to carry every burden alone.",
+      "Help me trust Your timing, rest in Your presence, and bring Your peace into every conversation and decision today. Amen.",
+    ],
+  },
+  {
+    title: "God, strengthen my faith.",
+    paragraphs: [
+      "Lord, when I cannot see what is ahead, help me trust who You are. Keep my heart steady when circumstances feel uncertain.",
+      "Give me courage to take the next faithful step and confidence that You are with me wherever today leads. Amen.",
+    ],
+  },
+  {
+    title: "God, help me walk in love.",
+    paragraphs: [
+      "Father, shape my words, thoughts and actions today. Help me be patient with others and quick to offer grace.",
+      "Teach me to love beyond convenience and to reflect Your kindness in the ordinary moments of this day. Amen.",
+    ],
+  },
+  {
+    title: "God, renew my strength.",
+    paragraphs: [
+      "Lord, You know where I feel tired and discouraged. Restore what feels empty and give me strength for what is in front of me.",
+      "Help me move through today with perseverance, gratitude and a heart that stays close to You. Amen.",
+    ],
+  },
+  {
+    title: "God, give me wisdom.",
+    paragraphs: [
+      "Heavenly Father, guide the choices I make today. Keep me from rushing ahead without seeking You.",
+      "Give me discernment to recognize what is good, courage to choose what is right, and humility to listen when You redirect me. Amen.",
+    ],
+  },
+  {
+    title: "God, help me be grateful.",
+    paragraphs: [
+      "Father, open my eyes to the blessings I often overlook. Thank You for life, for grace, and for Your presence with me.",
+      "Help gratitude shape my attitude today, even when everything does not go according to plan. Amen.",
+    ],
+  },
+];
 import DailyReflection from "./components/DailyReflection";const dailyScriptures = [
   {
     verse: "What time I am afraid, I will trust in thee.",
@@ -28,9 +79,12 @@ import DailyReflection from "./components/DailyReflection";const dailyScriptures
     reference: "Romans 12:12 · KJV",
   },
 ];export default function Home() {
-   const dayNumber = Math.floor(Date.now() / 86400000);
-  const scripture = dailyScriptures[dayNumber % dailyScriptures.length]; return (
-    <main
+     const dayNumber = Math.floor(Date.now() / 86400000);
+  const scripture =
+    dailyScriptures[dayNumber % dailyScriptures.length];
+  const prayer = dailyPrayers[dayNumber % dailyPrayers.length];
+
+  return (    <main
       style={{
         minHeight: "100vh",
         background: "#080807",
@@ -120,19 +174,15 @@ import DailyReflection from "./components/DailyReflection";const dailyScriptures
               fontSize: "28px",
             }}
           >
-            God, guide me today.
+            {prayer.title}
           </h2>
 
           <p style={{ color: "#d6d1c5", lineHeight: "1.7" }}>
-            Heavenly Father, thank You for giving me another day.
-            Calm the things I cannot control, give me wisdom for the
-            decisions ahead, and help me recognize Your presence in
-            the ordinary moments.
+            {prayer.paragraphs[0]}
           </p>
 
           <p style={{ color: "#d6d1c5", lineHeight: "1.7" }}>
-            Strengthen my faith when I feel uncertain. Help me walk
-            with patience, courage and love today. Amen.
+            {prayer.paragraphs[1]}
           </p>
         </section>
 
