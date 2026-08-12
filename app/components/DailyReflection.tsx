@@ -2,11 +2,23 @@
 
 import { useEffect, useState } from "react";
 
+function getTodayKey() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+
+  return `faithplugbryn-reflection-${year}-${month}-${day}`;
+}
+
 export default function DailyReflection() {
   const [reflection, setReflection] = useState("");
 
   useEffect(() => {
-    const saved = localStorage.getItem("faithplugbryn-reflection");
+    const todayKey = getTodayKey();
+    const savedToday = localStorage.getItem(todayKey);
+    const oldReflection = localStorage.getItem("faithplugbryn-reflection");
+    const saved = savedToday ?? oldReflection;
 
     if (saved) {
       setTimeout(() => setReflection(saved), 0);
@@ -14,7 +26,7 @@ export default function DailyReflection() {
   }, []);
 
   function saveReflection() {
-    localStorage.setItem("faithplugbryn-reflection", reflection);
+    localStorage.setItem(getTodayKey(), reflection);
   }
 
   return (
@@ -75,11 +87,11 @@ export default function DailyReflection() {
           cursor: "pointer",
         }}
       >
-        Save Reflection
+        Save Today&apos;s Reflection
       </button>
 
       <p style={{ color: "#aaa69c", fontSize: "12px" }}>
-        Saved privately on this device.
+        Saved privately on this device for today.
       </p>
     </section>
   );
